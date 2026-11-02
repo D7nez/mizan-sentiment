@@ -1,0 +1,1 @@
+Arabic stopword list bundled from nltk.corpus.stopwords (NLTK data corpus), with the original application's negation exclusions and extra words. NLTK project: https://www.nltk.org/ ; corpus source: https://github.com/nltk/nltk_data . Preserve original list when serving the legacy model; changing preprocessing requires evaluation/retraining.

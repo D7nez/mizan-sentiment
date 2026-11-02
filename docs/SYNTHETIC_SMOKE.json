@@ -1,0 +1,17 @@
+{
+  "purpose": "synthetic_pipeline_smoke_only",
+  "synthetic": true,
+  "rows": 36,
+  "split_sizes": {
+    "train": 25,
+    "validation": 5,
+    "test": 6
+  },
+  "candidates": [
+    "tfidf_logistic",
+    "bilstm_attention"
+  ],
+  "mlflow_runs_created": 2,
+  "real_dataset_evaluated": false,
+  "metric_claim": "No real-world quality claim"
+}

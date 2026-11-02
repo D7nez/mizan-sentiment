@@ -1,0 +1,10 @@
+{
+  "model_version": "legacy-bilstm-1",
+  "evaluation_status": "historical_leakage_risk_not_independently_validated",
+  "sha256": {
+    "model.keras": "bf55621e24136a47d0340b6845a517702e2a33a65f69520d713bcb8295fa4fdc",
+    "tokenizer.json": "269bbcb3723300a1571513a97bd01ac1250c20153196f6251ed6596261e44343",
+    "labels.json": "417e28a7e5f8fcba0d785d665d618eb8b375b34c7209470ab0cbdda2e0e94c2f",
+    "stopwords.json": "85ca5732ab603e758107dd6fdec25b0e0a5bff1a1d745fa58c4b806084111ce4"
+  }
+}

@@ -1,0 +1,31 @@
+name: mizan-sentiment
+services:
+  api:
+    build: .
+    ports: ["127.0.0.1:${API_PORT:-8092}:8000"]
+    environment:
+      APP_API_KEY: ${APP_API_KEY:-}
+      MODEL_DIR: /app/artifacts/legacy
+      AUDIT_DB: /app/state/audit.sqlite
+      REVIEW_THRESHOLD: ${REVIEW_THRESHOLD:-0.6}
+    volumes: ["audit-data:/app/state"]
+    healthcheck:
+      test: ["CMD","python","-c","import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/ready')"]
+      interval: 20s
+      timeout: 5s
+      retries: 5
+      start_period: 60s
+    restart: unless-stopped
+  train:
+    profiles: ["tools"]
+    build:
+      context: .
+      dockerfile: Dockerfile.train
+    environment:
+      MLFLOW_TRACKING_URI: sqlite:////app/state/mlflow.db
+    volumes:
+      - ./data:/app/data:ro
+      - ./reports:/app/reports
+      - ./state:/app/state
+volumes:
+  audit-data:

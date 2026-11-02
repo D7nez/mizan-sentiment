@@ -1,0 +1,9 @@
+FROM python:3.11-slim
+WORKDIR /app
+ENV TF_CPP_MIN_LOG_LEVEL=2 TF_NUM_INTRAOP_THREADS=1 TF_NUM_INTEROP_THREADS=1
+COPY requirements.txt requirements-train.txt ./
+RUN pip install --no-cache-dir -r requirements-train.txt
+COPY pyproject.toml .
+COPY src ./src
+RUN pip install --no-deps .
+CMD ["python","-m","mizan.train","--help"]

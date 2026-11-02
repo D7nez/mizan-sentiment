@@ -1,0 +1,10 @@
+.git
+.env
+state
+reports
+data
+notebooks
+tests
+.venv
+__pycache__
+mlruns/
